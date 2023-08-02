@@ -16,6 +16,7 @@ def get_data():
         headers = { "Content-Type":"application/json;charset = utf-8"}
         response = requests.post(f'https://fakestoreapi.com/products',headers=headers,json=data)
         print(json.dumps(response.json(),indent=4))
+        print(response.headers)
     except requests.exceptions.RequestException as err:
         print(f"Ha ocurrido un error: {err}")
         

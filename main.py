@@ -8,8 +8,13 @@ import json
 
 def get_data():
     try:
-        headers = { "Content-Type":"application/json:charset = utf-8"}
-        response=requests.get(f'https://fakestoreapi.com/carts/6',headers=headers)
+        data={
+            "title": "test",
+            "price": 10
+        }
+        
+        headers = { "Content-Type":"application/json;charset = utf-8"}
+        response = requests.post(f'https://fakestoreapi.com/products',headers=headers,json=data)
         print(json.dumps(response.json(),indent=4))
     except requests.exceptions.RequestException as err:
         print(f"Ha ocurrido un error: {err}")

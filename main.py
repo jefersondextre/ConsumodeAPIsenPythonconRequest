@@ -28,11 +28,11 @@ def get_data():
         #     "price":25.50,
         #     "descripcion": "test"
         # }
-        id=input("Ingrese el id del producto a eliminar: ")
-        response=requests.delete(f"https://fakestoreapi.com/products/{id}")
+        id=input("Ingrese el id del Carrito a eliminar: ")
+        response=requests.delete(f"https://fakestoreapi.com/carts/{id}")
         # response = requests.post('https://fakestoreapi.com/auth/login',data)
         print(json.dumps(response.json(),indent=4))
-        print('Producto eliminado.')
+        print('Carrito eliminado.')
     except requests.exceptions.RequestException as err:
         print(f"Ha ocurrido un error: {err}")
         

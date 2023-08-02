@@ -26,12 +26,10 @@ def get_data():
         data = {
             "title":"test product",
             "price":25.50,
-            "descripcion": "test",
-            "image": "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
-            "category":"electronic"
+            "descripcion": "test"
         }
         id=input("Ingrese el id del producto a modificar: ")
-        response=requests.put(f"https://fakestoreapi.com/products/{id}",data)
+        response=requests.patch(f"https://fakestoreapi.com/products/{id}",data)
         # response = requests.post('https://fakestoreapi.com/auth/login',data)
         print(json.dumps(response.json(),indent=4))
     except requests.exceptions.RequestException as err:

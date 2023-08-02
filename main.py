@@ -1,6 +1,7 @@
 '''@documentacion:
     https://requests.readthedocs.io/projects/es/es/latest/ 
     https://pokeapi.co/
+    https://fakestoreapi.com/
 '''
 import requests
 import json
@@ -11,7 +12,18 @@ def get_data():
         # print(response.content)
         # response = requests.get('https://pokeapi.co/api/v2/pokemon/')
         # print(response.status_code, response.content)
-        response = requests.get('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0')
+        # data={
+        #     "title":"new product",
+        #     "description" : "new product",
+        #     "price": 12.50,
+        #     "image": "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
+        #     "category": "electronic"
+        # }
+        data={
+            "username":"johnd",
+            "password":"m38rmF$"
+        }
+        response = requests.post('https://fakestoreapi.com/auth/login',data)
         print(json.dumps(response.json(),indent=4))
     except requests.exceptions.RequestException as err:
         print(f"Ha ocurrido un error: {err}")

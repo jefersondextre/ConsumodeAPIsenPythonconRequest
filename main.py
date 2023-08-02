@@ -19,11 +19,20 @@ def get_data():
         #     "image": "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
         #     "category": "electronic"
         # }
-        data={
-            "username":"johnd",
-            "password":"m38rmF$"
+        # data={
+        #     "username":"johnd",
+        #     "password":"m38rmF$"
+        # }
+        data = {
+            "title":"test product",
+            "price":25.50,
+            "descripcion": "test",
+            "image": "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
+            "category":"electronic"
         }
-        response = requests.post('https://fakestoreapi.com/auth/login',data)
+        id=input("Ingrese el id del producto a modificar: ")
+        response=requests.put(f"https://fakestoreapi.com/products/{id}",data)
+        # response = requests.post('https://fakestoreapi.com/auth/login',data)
         print(json.dumps(response.json(),indent=4))
     except requests.exceptions.RequestException as err:
         print(f"Ha ocurrido un error: {err}")

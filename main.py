@@ -11,7 +11,7 @@ def get_data():
         # print(response.content)
         # response = requests.get('https://pokeapi.co/api/v2/pokemon/')
         # print(response.status_code, response.content)
-        response = requests.get('https://pokeapi.co/api/v2/ability/immunity')
+        response = requests.get('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0')
         print(json.dumps(response.json(),indent=4))
     except requests.exceptions.RequestException as err:
         print(f"Ha ocurrido un error: {err}")

@@ -23,15 +23,16 @@ def get_data():
         #     "username":"johnd",
         #     "password":"m38rmF$"
         # }
-        data = {
-            "title":"test product",
-            "price":25.50,
-            "descripcion": "test"
-        }
-        id=input("Ingrese el id del producto a modificar: ")
-        response=requests.patch(f"https://fakestoreapi.com/products/{id}",data)
+        # data = {
+        #     "title":"test product",
+        #     "price":25.50,
+        #     "descripcion": "test"
+        # }
+        id=input("Ingrese el id del producto a eliminar: ")
+        response=requests.delete(f"https://fakestoreapi.com/products/{id}")
         # response = requests.post('https://fakestoreapi.com/auth/login',data)
         print(json.dumps(response.json(),indent=4))
+        print('Producto eliminado.')
     except requests.exceptions.RequestException as err:
         print(f"Ha ocurrido un error: {err}")
         

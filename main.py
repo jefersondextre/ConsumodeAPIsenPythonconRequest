@@ -3,23 +3,31 @@
     https://pokeapi.co/
     https://fakestoreapi.com/
 '''
+# from email import header
+# from unicodedata import category
 import requests
 import json
 
-def get_data():
+def login():
     try:
         data={
-            "title": "test",
-            "price": 10
+            "username":"mor_2314",
+            "password":"83r5^_"
         }
-        
-        headers = { "Content-Type":"application/json;charset = utf-8"}
-        response = requests.post(f'https://fakestoreapi.com/products',headers=headers,json=data)
-        print(json.dumps(response.json(),indent=4))
-        print(response.headers)
+        response = requests.post("https://fakestoreapi.com/auth/login",json = data)
+       
+        get_products(response.json()['token'])
     except requests.exceptions.RequestException as err:
         print(f"Ha ocurrido un error: {err}")
-        
+
+def get_products(token):
+    headers ={
+        "Authorization": token  
+    }
+    print(headers)
+    response = requests.get('https://fakestoreapi.com/products',headers=headers)
+    print(json.dumps(response.json(),indent = 4))
+    
 if __name__ == "__main__":
-    get_data()
+    login()
     

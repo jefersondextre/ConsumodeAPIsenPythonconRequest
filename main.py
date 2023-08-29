@@ -23,7 +23,7 @@ def login():
 def get_products(token):
     headers ={
         "Authorization": f"Bearer {token}",
-        "Content-Type":"application/json"  
+        "Content-Type":"application/json"
     }
     print(headers)
     response = requests.get('https://fakestoreapi.com/products',headers=headers)

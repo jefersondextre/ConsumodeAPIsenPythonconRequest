@@ -15,7 +15,7 @@ def login():
             "password":"83r5^_"
         }
         response = requests.post("https://fakestoreapi.com/auth/login",json = data)
-       
+    
         get_products(response.json()['token'])
     except requests.exceptions.RequestException as err:
         print(f"Ha ocurrido un error: {err}")
